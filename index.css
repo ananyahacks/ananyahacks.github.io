@@ -1,0 +1,459 @@
+
+
+/* General Body & HTML */
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700|Roboto:300,400,500,700,900&display=swap");
+
+html {
+    overflow-y: visible !important; /* Ensure vertical scrolling is allowed */
+    scroll-behavior: smooth;
+    /* REMOVED: scrollbar-track-color and scrollbar-arrow-color as they are non-standard */
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 3px;
+}
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+}
+
+/* CRITICAL FIX: Removed `overflow: hidden;` and `z-index: 1;` from universal selector */
+/* This was causing content to be hidden and z-index conflicts. Apply these properties
+   only to specific elements that truly require them. */
+* {
+    /* overflow: hidden;  <-- REMOVED THIS LINE */
+    /* z-index: 1;      <-- REMOVED THIS LINE */
+}
+
+.particle-h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+}
+
+    #particles-js {
+    /* ... other properties ... */
+    opacity: 1; /* Start visible */
+    transition: opacity 1s ease-out, visibility 1s ease-out; /* Smooth fade-out */
+
+}
+.hidden {
+    display: none;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 2;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.intro-name,
+.img-fluid,
+.progress-bar,
+.education-familiar,
+.lets-talk,
+.social {
+    will-change: transform;
+    transition: linear 1s ease-in;
+}
+
+/* FIX: Commented out the generic h1-h6 font-size.
+   This allows Bootstrap's display-3, display-4 etc., classes to apply their intended larger font sizes
+   and maintain proper heading hierarchy. If you want a uniform small size, uncomment and adjust. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.2em;
+    /* font-size: 1.4rem; */ /* This line was overriding Bootstrap's display classes */
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 600;
+}
+
+#button {
+    display: inline-block;
+    background-color: #007bff;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#button::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+
+#button:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+#button:active {
+    background-color: #555;
+}
+
+#button.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.technologies {
+    display: flex;
+    flex-wrap: wrap; /* Added flex-wrap to ensure icons wrap on smaller screens */
+    justify-content: center; /* Changed to center for better alignment of icons */
+    gap: 20px; /* Added gap for spacing between icons */
+}
+.extra-padding {
+    padding: 0rem 0.1rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.625em;
+    position: relative;
+    background-color: #002853 !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 25px;
+}
+
+p {
+    font-size: 1.3rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+.lead {
+    font-weight: bolder;
+}
+ul {
+    font-size: 1.3rem;
+    margin: 1rem 0rem !important;
+}
+div li {
+    font-size: 1.3rem;
+}
+strong {
+    font-size: 1.4rem;
+}
+.container {
+    /* Removed overflow: auto; from here as it was causing issues with GSAP ScrollTrigger */
+    /* If you need specific overflow for a section, apply it to that section only */
+}
+/* responsive changess */
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #007bff;
+    transition: all 0.3s;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: #111;
+    transition: all 0.3s;
+}
+
+.social-links li {
+    list-style: none;
+    display: inline-block;
+}
+
+.social-links li a {
+    height: 50px;
+    width: 50px;
+    display: block;
+    float: left;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    position: relative;
+    color: rgba(255, 255, 255, 0.9); /* Ensure default color for icons is visible */
+}
+
+.social-links li a ion-icon {
+    position: absolute;
+    font-size: 26px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+    color: inherit; /* Inherit color from parent 'a' tag */
+}
+
+.social-links li a:hover {
+    color: #007bff; /* Changed hover color to blue for visibility on dark background */
+    background: rgba(255, 255, 255, 0.15); /* Slightly brighter background on hover */
+    transition: all 0.3s;
+}
+
+/* FIX: Increased tech icon size for visibility */
+.tech-icon {
+    width: 60px; /* Increased from 20px */
+    height: 60px; /* Increased from 20px */
+    object-fit: contain; /* Ensure image scales correctly */
+}
+
+.wrap {
+    padding: 0;
+}
+.left {
+    text-align: left;
+}
+
+.wrap .about-desc .bold-text {
+    position: absolute;
+    top: -80px;
+    left: 10px;
+    right: 0;
+    bottom: 0;
+    font-weight: 700 !important;
+    color: #002853;
+    text-transform: uppercase;
+}
+
+.progress-style {
+    margin: 0.8rem 0rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for progress track */
+}
+
+/* FIX: Added background color for progress bar */
+.progress-bar {
+    background-color: #007bff; /* Blue color for the progress fill */
+}
+
+.interests .icon-box {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    transition: ease-in-out 0.1s;
+    flex-direction: column; /* Ensure icons and text stack vertically */
+    justify-content: center;
+    text-align: center;
+    width: 150px; /* Give it a fixed width for consistency */
+    height: 150px; /* Give it a fixed height for consistency */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.interests .icon-box i {
+    font-size: 32px;
+    padding-right: 10px;
+    line-height: 1;
+}
+
+.interests .icon-box h3 {
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    padding-top: 0.5rem; /* Added padding top for spacing from icon */
+    line-height: 1;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.interests .icon-box:hover {
+    background: rgba(122, 122, 122, 0.12);
+    transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+.bg-text {
+    position: absolute;
+    margin-bottom: -1em;
+    top: -80px;
+    left: 10px;
+    right: 0;
+    bottom: 0;
+    font-weight: 700 !important;
+    color: rgba(255, 255, 255, 0.08); /* Changed to white with transparency for dark background */
+    text-transform: uppercase;
+}
+.blog-entry .text {
+    position: relative;
+    border-top: 0;
+    border-radius: 2px;
+}
+
+.blog-entry .text .heading {
+    font-size: 20px;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.blog-entry .text .heading a {
+    color: #111;
+}
+
+.blog-entry .text .heading a:hover,
+.blog-entry .text .heading a:focus,
+.blog-entry .text .heading a:active {
+    color: #2f89fc;
+}
+
+.blog-entry .meta > div {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.blog-entry .meta > div a {
+    font-size: 15px;
+    color: #8c8c8c;
+}
+
+.profile-text {
+    font-weight: 300;
+}
+/* responsive */
+@media (min-width: 992px) {
+    .bg-text {
+        font-size: 6em;
+    }
+    .wrap .about-desc .bold-text {
+        font-size: 6em;
+    }
+}
+
+@media (min-width: 768px) {
+    .bg-text {
+        position: relative;
+    }
+    .blog-entry {
+        margin-bottom: 30px;
+    }
+    #button {
+        margin: 30px;
+    }
+    .col-md-6 {
+        /* max-width: 70% !important; */ /* Removed this, it was overly restrictive */
+    }
+    .wrap .about-desc {
+        position: relative;
+    }
+    .skills-box {
+        margin-top: 3rem !important;
+        margin-left: 3rem !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .bg-text {
+        display: none;
+    }
+    .wrap .about-desc .bold-text {
+        display: none;
+    }
+    .lead,
+    .left {
+        text-align: center !important;
+    }
+}
+@media (max-width: 768px) {
+    .profile-text {
+        font-size: 20px !important;
+    }
+    .technologies {
+        flex-direction: row; /* Keep as row, but ensure wrap */
+        justify-content: center;
+    }
+    .blog-entry {
+        margin-bottom: 30px;
+    }
+    .bg-text {
+        display: none;
+    }
+
+    .wrap {
+        margin-top: 40px;
+    }
+    .interests .icon-box {
+        width: 120px; /* Adjusted for smaller screens */
+        height: 120px;
+    }
+    .tech-icon {
+        width: 50px; /* Adjusted for smaller screens */
+        height: 50px;
+    }
+}
+
+@media (max-width: 565px) {
+    body {
+        padding: 1rem;
+    }
+    .display-3 {
+        font-size: 3rem !important;
+    }
+
+    html {
+        font-size: 13px;
+    }
+    .section-heading {
+        font-size: 40px !important;
+    }
+
+    #particles-js {
+        width: 100%;
+        height: 85vh;
+    }
+    ul{
+        padding: 0rem 1rem!important;
+    }
+    .interests .icon-box {
+        width: 100px; /* Further adjusted for very small screens */
+        height: 100px;
+    }
+    .tech-icon {
+        width: 40px; /* Further adjusted for very small screens */
+        height: 40px;
+    }
+}
+@media (max-width: 340px) {
+    .display-4 {
+        font-size: 1.8rem !important;
+        font-weight: 600 !important;
+    }
+}
